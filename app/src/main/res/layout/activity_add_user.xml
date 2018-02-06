@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="addUserViewModel"
+            type="com.example.shalini.mvvmdatabindingdemo.adduser.AddUserViewModel"></variable>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/buttonAddUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.shalini.mvvmdatabindingdemo.adduser.AddUserActivity">
+
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:inputType="textPersonName"
+            android:hint="FirstName"
+            android:text="@={addUserViewModel.mFirstName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:inputType="textPersonName"
+            android:text="@={addUserViewModel.mSecondName}"
+            android:hint="LastName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText"/>
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:inputType="date"
+            android:hint="DateOfBirth"
+            android:text="@={addUserViewModel.mDateOfBirth}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText2"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add User"
+            android:onClick="@{()-> addUserViewModel.saveTask()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText4"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
